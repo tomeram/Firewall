@@ -1,21 +1,11 @@
 /*** Main FW File ***/
 #include "fw.h"
-
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Tomer Amir");
+#include "stateless.h"
+#include "statefull.h"
+#include "log.h"
 
 /****** Global Vars ******/
 int firewall_active = 0;
-int num_of_rules 	= 0;
-int log_size_num 	= 0;
-int num_of_dynamic_rules = 0;
-
-rule_link *list = NULL;
-rule_link *last = NULL;
-
-dynamic_rule_link *dynamic_table = NULL;
-
-log_link *log_l = NULL;
 
 /* For Hook */
 static struct nf_hook_ops nfho_hook;
@@ -27,7 +17,7 @@ int major_rules_active;
 int major_log;
 int major_log_size;
 
-struct class *m_c_fw;
+struct class  * m_c_fw;
 
 struct device * dev_rules;
 struct device * dev_rules_active;
@@ -40,336 +30,7 @@ dev_t m_dev_rules_active;
 dev_t m_dev_log;
 dev_t m_dev_log_size;
 
-
-/****** Helper Functions ******/
-void clear_rules(void) {
-	rule_link *next;
-
-	if (num_of_rules == 0) {
-		printk(KERN_INFO "Rule Table empty.\n");
-		return;
-	}
-
-	while (list != NULL) {
-		next = list->next;
-		kfree(list);
-		list = next;
-
-		num_of_rules--;
-	}
-
-	if (num_of_rules != 0) {
-		printk(KERN_INFO "Error: not all rules freed! %d\n", num_of_rules);
-	} else {
-		printk(KERN_INFO "Memory successfully freed! :)\n");
-	}
-}
-
-void clear_dynamic_rules(void) {
-	dynamic_rule_link *next;
-
-	if (num_of_dynamic_rules == 0) {
-		printk(KERN_INFO "Dynamic Rule Table empty.\n");
-		return;
-	}
-
-	while (dynamic_table != NULL) {
-		next = dynamic_table->next;
-		kfree(dynamic_table);
-		dynamic_table = next;
-
-		num_of_dynamic_rules--;
-	}
-
-	if (num_of_dynamic_rules != 0) {
-		printk(KERN_INFO "Error: not all dynamic rules freed! %d\n", num_of_dynamic_rules);
-	} else {
-		printk(KERN_INFO "Memory successfully freed! :)\n");
-	}
-}
-
-void clear_log(void) {
-	log_link *next;
-
-	while (log_l != NULL) {
-		next = log_l->next;
-		kfree(log_l);
-		log_l = next;
-
-		log_size_num--;
-	}
-
-	if (log_size_num != 0) {
-		printk(KERN_INFO "Error: not all rules freed! %d\n", num_of_rules);
-	} else {
-		printk(KERN_INFO "Memory successfully freed! :)\n");
-	}
-}
-
-void log_entry(rule_t *input, rule_t *rule, reason_t reason, int hooknum, int action) {
-	log_link *curr = log_l;
-	log_link *new_link;
-	log_row_t *new;
-	struct timeval s_time;
-
-	new_link = kmalloc(sizeof(log_link), GFP_ATOMIC);
-
-	if (new_link == NULL) {
-		printk(KERN_INFO "Error in kmalloc for log\n");
-		return;
-	}
-
-	new = &new_link->entry;
-
-	do_gettimeofday(&s_time);
-	new->timestamp = (u32)s_time.tv_sec;
-	new->protocol = input->protocol;
-	new->reason = reason;
-	new->action = action;
-
-	new->hooknum = hooknum;
-	new->src_ip = input->src_ip;
-	new->dst_ip = input->dst_ip;
-	new->src_port = input->src_port;
-	new->dst_port = input->dst_port;
-	new->count = 1;
-
-	while (curr != NULL) {
-		// Check if there is alredy a log entry
-		if (curr->entry.reason == reason &&
-			curr->entry.protocol == new->protocol &&
-			curr->entry.src_ip == new->src_ip &&
-			curr->entry.dst_ip == new->dst_ip &&
-			curr->entry.src_port == new->src_port &&
-			curr->entry.dst_port == new->dst_port &&
-			curr->entry.action == new->action) {
-			
-			curr->entry.timestamp = (u32)s_time.tv_sec;
-			curr->entry.count++;
-			kfree(new_link);
-			return;
-		}
-
-		curr = curr->next;
-		continue;
-	}
-
-	new_link->next = log_l;
-	log_l = new_link;
-
-	log_size_num++;
-}
-
-void create_dynamic_rule(rule_t input, struct tcphdr *tcph) {
-	// TODO: should I create rule for both directions?
-	// Create rule, and add to table
-	dynamic_rule_link 	* new_link = kmalloc(sizeof(dynamic_rule_link), GFP_ATOMIC);
-	dynamic_rule		* rule = NULL;
-	struct timeval 		s_time;
-	unsigned long		curr_time;
-
-	do_gettimeofday(&s_time);
-	curr_time = (u32)s_time.tv_sec;
-
-	if (new_link == NULL) {
-		printk(KERN_INFO "Error in kmalloc: could not allocate a dynamic rule.\n");
-		return;
-	}
-
-	new_link->next = dynamic_table; // Add to dynamic table
-	dynamic_table = new_link;
-
-	rule = &new_link->rule;
-	
-	rule->src_ip	= input.src_ip;
-	rule->dst_ip	= input.dst_ip;
-	rule->src_port	= input.src_port;
-	rule->dst_port	= input.dst_port;
-	rule->timestamp = curr_time;
-
-	if (ntohs(input.dst_port) == 21) {
-		rule->protocol 	= FTP;
-		rule->ftp_state = FTP_HANDSHAKE;
-	} else {
-		rule->protocol = OTHER_TCP;
-	}
-
-	num_of_dynamic_rules++;
-	printk(KERN_INFO "Size of of dynamic table: %d", num_of_dynamic_rules);
-}
-
-void update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph) {
-	// TODO: ftp
-	char 			* data = (char *)((int)tcph + (int)(tcph->doff * 4));
-	dynamic_rule 	* rule = &curr->rule;
-
-	printk("here");
-
-	switch(rule->ftp_state) {
-		case FTP_HANDSHAKE:
-			printk(KERN_INFO "FTP_HANDSHAKE\n");
-			break;
-	}
-
-}
-
-void update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph) {
-	if (curr->rule.protocol == FTP) {
-		update_connection_state(curr, prev, tcph);
-	}
-	// TODO: http, other
-}
-
-int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
-	struct timeval 		s_time; // To check if the entry is still relevant
-	unsigned long 		curr_time;
-	dynamic_rule_link 	* curr 		= dynamic_table;
-	dynamic_rule_link 	* prev		= NULL;
-	dynamic_rule		* rule		= NULL;
-
-	do_gettimeofday(&s_time);
-	curr_time = (u32)s_time.tv_sec;
-
-	// Check if there is a rule for this connection
-	while(curr != NULL) {
-		rule = &curr->rule;
-
-		// Check rule timeout
-		if (curr_time - rule->timestamp > 25) {
-			printk(KERN_INFO "Rule Expired.\n");
-			// Rule default timeout -> remove and skip
-			if (prev != NULL) {
-				prev->next = curr->next;
-				kfree(curr);
-				curr = prev->next;
-			} else {
-				// This is the first rule in the list.
-				dynamic_table = curr->next;
-				kfree(curr);
-				curr = dynamic_table;
-			}
-
-			num_of_dynamic_rules--;
-
-			printk(KERN_INFO "Size of of dynamic table: %d\n", num_of_dynamic_rules);
-			continue;
-		}
-
-
-		// TODO: Am I supposed check in the other direction too?
-		if ((rule->src_ip == input.src_ip && rule->src_port == input.src_port 
-					&& rule->dst_ip == input.dst_ip && rule->dst_port == input.dst_port) ||
-			(rule->src_ip == input.dst_ip && rule->src_port == input.dst_port 
-					&& rule->dst_ip == input.src_ip && rule->dst_port == input.src_port)) {
-			printk(KERN_INFO "Found matching dynamic_rule.\n");
-			// TODO update state
-			rule->timestamp = curr_time;
-			update_connection_state(curr, prev, tcph);
-
-			return 1;
-		}
-
-		prev = curr;
-		curr = curr->next;
-	}
-
-	// No rule found, check if the connection is new, and create a rule accordingly
-	printk(KERN_INFO "No rule found in dynamic table - Packet dropped.\n");
-	return 0;
-}
-
-int check_static_action(rule_t input, int hooknum) {
-	rule_link *curr_l = list;
-	rule_t curr;
-	__be32 mask;
-	int i = 0;
-
-	// Search for matching rule
-	while(curr_l != NULL) {
-		i++;
-		curr = curr_l->rule;
-		// Check Direction
-		if (curr.direction != DIRECTION_ANY && curr.direction != input.direction) {
-			curr_l = curr_l->next;
-			continue;
-		}
-
-		// Check src_ip
-		if (curr.src_ip != 0) { // Ok of rule IP is any
-			mask = (0xFFFFFFFF << (32 - curr.src_prefix_size)) & 0xFFFFFFFF;
-
-			if ((curr.src_ip & mask) != (input.src_ip & mask)) {
-				// Rule does not match
-				curr_l = curr_l->next;
-				continue;
-			}
-		}
-
-		if (curr.dst_ip != 0) { // Ok of rule IP is any
-			mask = (0xFFFFFFFF << (32 - curr.dst_prefix_size)) & 0xFFFFFFFF;
-
-			if ((curr.dst_ip & mask) != (input.dst_ip & mask)) {
-				// Rule does not match
-				curr_l = curr_l->next;
-				continue;
-			}
-		}
-		
-		// Check Protocol
-		if (curr.protocol != PROT_OTHER && curr.protocol != PROT_ANY) { // Continue if rule protocol is any
-			if (input.protocol == curr.protocol) {
-				// Check TCP
-				if (curr.protocol == PROT_TCP) {
-					// Check ACK
-					if (curr.ack != ACK_ANY && curr.ack == input.ack) {
-						// Check Ports
-						if ((curr.src_port == 0) || (curr.src_port != 0 && curr.src_port == input.src_port) || (curr.src_port == 1023 && input.src_port > 1023)) {
-							if ((curr.dst_port == 0) || (curr.dst_port != 0 && curr.dst_port == input.dst_port) || (curr.dst_port == 1023 && input.dst_port > 1023)) {
-								// Found Matching rule. Wire to log and execute action.
-								log_entry(&input, &curr, i, hooknum, curr.action);
-								printk(KERN_INFO "TCP Rule: %s, action %d", curr.rule_name, curr.action);
-								return curr.action;
-							}
-						}
-					}
-				}
-
-				// Check UDP
-				if (curr.protocol == PROT_UDP) {
-					// Check Ports
-					if ((curr.src_port == 0) || (curr.src_port != 0 && curr.src_port == input.src_port) || (curr.src_port == 1023 && input.src_port > 1023)) {
-						if ((curr.dst_port == 0) || (curr.dst_port != 0 && curr.dst_port == input.dst_port) || (curr.dst_port == 1023 && input.dst_port > 1023)) {
-							// Found Matching rule. Wire to log and execute action.
-							log_entry(&input, &curr, i, hooknum, curr.action);
-							printk(KERN_INFO "UDP Rule: %s, action %d", curr.rule_name, curr.action);
-							return curr.action;
-						}
-					}
-				}
-				// Check ICMP
-				if (curr.protocol == PROT_ICMP) {
-					// Found Matching rule. Wire to log and execute action.
-					log_entry(&input, &curr, i, hooknum, curr.action);
-					printk(KERN_INFO "ICMP Rule: %s, action %d", curr.rule_name, curr.action);
-					return curr.action;
-				}
-			}
-			
-			curr_l = curr_l->next;
-			continue;
-		}
-
-		// Found Matching rule. Wire to log and execute action.
-		log_entry(&input, &curr, i, hooknum, curr.action);
-		printk(KERN_INFO "OTHER/ANY Rule: %s, action %d", curr.rule_name, curr.action);
-		return curr.action;
-	}
-
-	// No Rule found
-	log_entry(&input, NULL, REASON_NO_MATCHING_RULE, hooknum, 1);
-	printk(KERN_INFO "No Rule Found\n");
-	return 1;
-}
+/** Functions **/
 
 int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
 	rule_t input;
@@ -784,6 +445,9 @@ static int __init module_init_function(void) {
 	/* Create fw - The parent */
 	m_c_fw = class_create(THIS_MODULE, "fw");
 
+	if (!m_c_fw) {
+		printk(KERN_INFO "Error: Could not create class\n");
+	}
 
 	/* Create fw_rules device */
 	major_rules = register_chrdev(0, "fw_rules", &fops_rules);
@@ -868,3 +532,7 @@ static void __exit module_exit_function(void) {
 
 module_init(module_init_function);
 module_exit(module_exit_function);
+
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("Tomer Amir");
+MODULE_DESCRIPTION("Firewall");

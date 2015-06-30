@@ -103,7 +103,6 @@ typedef enum {
 	DIRECTION_ANY 	= DIRECTION_IN | DIRECTION_OUT,
 } direction_t;
 
-/** Stateless **/
 // Static Rule
 typedef struct {
 	char rule_name[20];
@@ -122,51 +121,7 @@ typedef struct {
 	__u8	action;   			// valid values: NF_ACCEPT, NF_DROP
 } rule_t;
 
-// Link for the rule list
-typedef struct rule_link {
-	rule_t rule;
-	struct rule_link *next;
-
-} rule_link;
-
-/** Statefull **/
-// Dynamic Rule
-typedef struct {
-	__be32 			src_ip;
-	__be16 			src_port;
-	__be32 			dst_ip;
-	__be16 			dst_port;
-	tcp_type 		protocol;
-	ftp_state_enum	ftp_state;
-	http_state_enum	http_state;
-	unsigned long 	timestamp;	// To check if the rule is still relevant
-} dynamic_rule;
-
-typedef struct dynamic_rule_link
-{
-	dynamic_rule rule;
-	struct dynamic_rule_link *next;
-} dynamic_rule_link;
-
-/** Log **/
-// Log Entry
-typedef struct {
-	unsigned long  	timestamp;     	// time of creation/update
-	unsigned char  	protocol;     	// values from: prot_t
-	unsigned char  	action;       	// valid values: NF_ACCEPT, NF_DROP
-	unsigned char  	hooknum;      	// as received from netfilter hook
-	__be32   		src_ip;		  	// if you use this struct in userspace, change the type to unsigned int
-	__be32			dst_ip;		  	// if you use this struct in userspace, change the type to unsigned int
-	__be16 			src_port;	  	// if you use this struct in userspace, change the type to unsigned short
-	__be16 			dst_port;	  	// if you use this struct in userspace, change the type to unsigned short
-	reason_t     	reason;       	// rule#index, or values from: reason_t
-	unsigned int   	count;        	// counts this line's hits
-} log_row_t;
-
-// Log Link
-typedef struct log_link {
-	log_row_t entry;
-	struct log_link *next;
-} log_link;
+/** Globals **/
+extern int firewall_active;
 
 #endif // _FW_H_

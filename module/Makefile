@@ -1,10 +1,15 @@
-obj-m := fw.o
+ifneq ($(KERNELRELEASE),)
+	obj-m := fw.o
+	fw-objs := fwmod.o stateless.o statefull.o log.o
 
-KDIR :=/lib/modules/$(shell uname -r)/build
-PDW := $(shell pwd)
+else
+	KDIR :=/lib/modules/$(shell uname -r)/build
+	PDW := $(shell pwd)
 
 all:
 	$(MAKE) -C $(KDIR) M=$(PDW) modules
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(PDW) clean
+
+endif

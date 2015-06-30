@@ -1,7 +1,27 @@
 reset
 sudo rmmod fw
-make clean
-make
+
+echo "make"
+echo ""
+sudo make
+
+echo ""
+echo ""
+echo "insmod"
+echo ""
 sudo insmod fw.ko
+
+echo ""
+echo "Activate"
+echo ""
 sudo ./../user/a.out firewall_activation 1
+
+echo ""
+echo ""
+echo "Load rules"
+echo ""
 sudo ./../user/a.out load_rule_table_from_file ../user/rules.txt
+
+echo ""
+echo ""
+sudo make clean
