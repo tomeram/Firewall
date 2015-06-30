@@ -1,0 +1,222 @@
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/ip.h>
+#include <linux/netfilter.h>
+#include <linux/netfilter_ipv4.h>
+#include <linux/cdev.h>
+#include <linux/sysfs.h>
+#include <linux/string.h>
+#include <linux/slab.h>
+#include <linux/fs.h>
+#include <asm/uaccess.h>
+
+MODULE_LICENSE("GPL");
+
+/****** Global Vars ******/
+int firewall_active = 0;
+
+static struct nf_hook_ops nfho_accept; 	/* A hook that will accept all packets */
+static struct nf_hook_ops nfho_block;	/* A hook that will block all packets */
+
+int accepted_packets = 0;
+int dropped_packets = 0;
+
+/* Globals for the devices */
+int major_rules, major_rules_active;
+int major_log;
+
+struct class *m_c_fw, *m_c_fw_active;
+struct device *dev_rules, *dev_rules_active;
+struct device *dev_log;
+dev_t m_dev_rules, m_dev_rules_active;
+dev_t m_dev_log;
+
+/* The function always accepts the packets, and print a message accordingly */
+static unsigned int hook_func_accept(unsigned int hooknum, struct sk_buff *skb, const struct net_device *in, const struct net_device *out, int (*okfn)(struct sk_buff *)) {
+	printk(KERN_INFO "*** packet passed ***\n");
+
+	accepted_packets++;
+
+	return 1;
+}
+
+/* The function always blocks the packets, and print a message accordingly */
+static unsigned int hook_func_block(unsigned int hooknum, struct sk_buff *skb, const struct net_device *in, const struct net_device *out, int (*okfn)(struct sk_buff *)) {
+	printk(KERN_INFO "*** packet blocked ***\n");
+
+	dropped_packets++;
+
+	return 0;
+}
+
+
+/* fw_rules functions */
+static ssize_t rules_show_func(struct device *dev, struct device_attribute *attr, char *buf) {
+	return snprintf(buf,PAGE_SIZE, "%d,%d", accepted_packets, dropped_packets);
+}
+
+static ssize_t rules_store_func(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
+	accepted_packets = 0;
+	dropped_packets = 0;
+	return 1;
+}
+
+static DEVICE_ATTR(fw_rules, 0666, rules_show_func, rules_store_func);
+
+
+/* active functions */
+static ssize_t active_show_func(struct device *dev, struct device_attribute *attr, char *buf) {
+	return snprintf(buf,PAGE_SIZE, "%d,%d", accepted_packets, dropped_packets);
+}
+
+static ssize_t active_store_func(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
+	if (buf[0] == '1') {
+		firewall_active = 1;
+	} else {
+		firewall_active = 0;
+	}
+
+	return 1;
+}
+
+static DEVICE_ATTR(active, 0666, active_show_func, active_store_func);
+
+
+
+/* fw_log functions */
+static ssize_t log_show_func(struct device *dev, struct device_attribute *attr, char *buf) {
+	return snprintf(buf,PAGE_SIZE, "%d,%d", accepted_packets, dropped_packets);
+}
+
+static ssize_t log_store_func(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
+	accepted_packets = 0;
+	dropped_packets = 0;
+	return 1;
+}
+
+static DEVICE_ATTR(fw_log, 0444, log_show_func, log_store_func);
+
+
+static int device_open(struct inode *inode, struct file *file) {
+	return 0;
+}
+static ssize_t device_read(struct file *file, char __user * buffer, size_t length, loff_t * offset) {
+    put_user("test", buffer);
+
+    return 0;
+}
+
+static int device_release(struct inode *inode, struct file *file) {
+	return 0;
+}
+
+struct file_operations fops = {
+	.owner = THIS_MODULE	
+};
+
+struct file_operations fops_log = {
+	.open = device_open,
+	.read = device_read,
+	.release = device_release,
+	.owner = THIS_MODULE	
+};
+
+/* Init function */
+static int __init module_init_function(void) {
+	/* HOOKS */
+	nfho_accept.hook = hook_func_accept;
+	nfho_accept.hooknum = NF_INET_LOCAL_IN;
+	nfho_accept.pf = PF_INET;
+	nfho_accept.priority = NF_IP_PRI_FIRST;
+
+	nfho_accept.hook = hook_func_accept;
+	nfho_accept.hooknum = NF_INET_POST_ROUTING;
+	nfho_accept.pf = PF_INET;
+	nfho_accept.priority = NF_IP_PRI_FIRST;
+
+	nfho_accept.hook = hook_func_accept;
+	nfho_accept.hooknum = NF_INET_LOCAL_OUT;
+	nfho_accept.pf = PF_INET;
+	nfho_accept.priority = NF_IP_PRI_FIRST;
+
+	/* BLOCKING HOOKS */
+	nfho_block.hook = hook_func_block;
+	nfho_block.hooknum = NF_INET_FORWARD;
+	nfho_block.pf = PF_INET;
+	nfho_block.priority = NF_IP_PRI_FIRST;
+
+	/* Register the hooks in the OS */
+	nf_register_hook(&nfho_accept);
+	nf_register_hook(&nfho_block);
+
+	/******** Create Devices ********/
+
+	/* Create fw - The parent */
+	m_c_fw = class_create(THIS_MODULE, "fw");
+	// m_c_fw_active = class_create(THIS_MODULE, "active");
+
+
+	/* Create fw_rules device */
+	major_rules = register_chrdev(0, "fw_rules", &fops);
+
+	m_dev_rules = MKDEV(major_rules, 0);
+
+	dev_rules = device_create(m_c_fw, NULL, m_dev_rules, NULL, "fw_rules");
+
+	device_create_file(dev_rules, &dev_attr_fw_rules);
+
+	/* Create active device */
+	major_rules_active = register_chrdev(0, "active", &fops);
+
+	m_dev_rules_active = MKDEV(major_rules, 0);
+
+	dev_rules_active = device_create(m_c_fw, NULL, m_dev_rules_active, NULL, "active");
+
+	device_create_file(dev_rules_active, &dev_attr_active);
+
+	/* Create fw_log device */
+	major_log = register_chrdev(0, "fw_log", &fops_log);
+
+	m_dev_log = MKDEV(major_log, 0);
+
+	dev_log = device_create(m_c_fw, NULL, m_dev_log, NULL, "fw_log");
+
+	device_create_file(dev_log, &dev_attr_fw_log);
+
+	return 0;
+}
+
+static void __exit module_exit_function(void) {
+	/* Clear the hooks from the OS */
+	nf_unregister_hook(&nfho_accept);
+	nf_unregister_hook(&nfho_block);
+
+	/* unregister active */
+	device_remove_file(dev_rules_active, &dev_attr_active);
+
+	device_destroy(m_c_fw, m_dev_rules_active);
+
+	unregister_chrdev(major_rules_active, "active");
+
+	/* unregister fw_rules */
+	device_remove_file(dev_rules, &dev_attr_fw_rules);
+
+	device_destroy(m_c_fw, m_dev_rules);
+
+	unregister_chrdev(major_rules, "fw_rules");
+
+	/* unregister fw_log */
+	device_remove_file(dev_log, &dev_attr_fw_log);
+
+	device_destroy(m_c_fw, m_dev_log);
+
+	unregister_chrdev(major_log, "fw_log");
+
+
+	/* unregister fw */
+
+	class_destroy(m_c_fw);
+}
+
+module_init(module_init_function);
+module_exit(module_exit_function);

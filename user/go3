@@ -1,0 +1,2 @@
+sudo ./a.out show_log
+sudo ./a.out clear_log

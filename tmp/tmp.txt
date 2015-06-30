@@ -1,0 +1,1391 @@
+q_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.445989] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446011] 
+[  114.446016] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.446023] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.446028] EIP is at native_safe_halt+0xa/0x10
+[  114.446032] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.446036] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.446041]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.446045] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.446050] Stack:
+[  114.446054]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.446061]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.446069]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.446077] Call Trace:
+[  114.446083]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446089]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446095]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446099] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.446136] Call Trace:
+[  114.446141]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446148]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446154]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446168] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.446172] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446195] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446217] 
+[  114.446221] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.446228] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.446233] EIP is at native_safe_halt+0xa/0x10
+[  114.446237] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.446242] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.446246]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.446251] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.446255] Stack:
+[  114.446259]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.446266]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.446274]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.446282] Call Trace:
+[  114.446287]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446293]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446300]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446304] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.446335] Call Trace:
+[  114.446406]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446413]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446419]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446509] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.446513] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446576] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446601] 
+[  114.446606] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.446613] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.446619] EIP is at native_safe_halt+0xa/0x10
+[  114.446624] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.446628] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.446633]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.446639] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.446643] Stack:
+[  114.446647]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.446656]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.446665]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.446673] Call Trace:
+[  114.446679]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446686]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446693]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446697] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.446737] Call Trace:
+[  114.446743]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446749]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446755]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446771] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.446775] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446800] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.446823] 
+[  114.446828] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.446834] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.446840] EIP is at native_safe_halt+0xa/0x10
+[  114.446844] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.446849] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.446854]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.446859] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.446863] Stack:
+[  114.446867]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.446875]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.446883]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.446891] Call Trace:
+[  114.446898]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446905]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446911]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446916] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.446955] Call Trace:
+[  114.446961]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.446967]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.446973]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.446990] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.446994] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447018] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447041] 
+[  114.447054] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.447060] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.447066] EIP is at native_safe_halt+0xa/0x10
+[  114.447070] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.447075] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.447079]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.447084] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.447088] Stack:
+[  114.447091]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.447099]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.447107]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.447114] Call Trace:
+[  114.447120]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447126]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447132]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447136] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.447171] Call Trace:
+[  114.447176]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447182]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447188]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447201] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.447205] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447227] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447248] 
+[  114.447253] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.447259] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.447264] EIP is at native_safe_halt+0xa/0x10
+[  114.447268] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.447272] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.447277]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.447281] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.447285] Stack:
+[  114.447289]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.447297]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.447304]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.447311] Call Trace:
+[  114.447317]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447323]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447329]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447334] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.447369] Call Trace:
+[  114.447374]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447381]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447387]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447402] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.447406] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447457] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447494] 
+[  114.447499] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.447505] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.447510] EIP is at native_safe_halt+0xa/0x10
+[  114.447514] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.447519] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.447523]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.447528] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.447532] Stack:
+[  114.447536]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.447543]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.447551]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.447559] Call Trace:
+[  114.447564]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447570]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447576]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447580] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.447616] Call Trace:
+[  114.447622]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447628]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447634]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447648] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.447652] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447674] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447696] 
+[  114.447701] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.447707] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.447712] EIP is at native_safe_halt+0xa/0x10
+[  114.447716] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.447721] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.447725]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.447730] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.447734] Stack:
+[  114.447737]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.447745]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.447753]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.447761] Call Trace:
+[  114.447766]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447772]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447778]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447782] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.447818] Call Trace:
+[  114.447823]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447829]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.447836]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.447849] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.447853] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447875] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.447897] 
+[  114.447901] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.447907] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.447912] EIP is at native_safe_halt+0xa/0x10
+[  114.447930] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.447951] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.447956]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.447961] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.447966] Stack:
+[  114.447970]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.447976]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.447982]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.447988] Call Trace:
+[  114.447993]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.447995]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.448073]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.448077] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.448104] Call Trace:
+[  114.448108]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.448113]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.448118]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.449998] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450002] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450024] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450041] 
+[  114.450045] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.450050] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.450055] EIP is at native_safe_halt+0xa/0x10
+[  114.450058] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.450062] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.450065]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.450069] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.450072] Stack:
+[  114.450075]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.450081]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.450086]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.450092] Call Trace:
+[  114.450097]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450102]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450107]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450110] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.450137] Call Trace:
+[  114.450141]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450145]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450150]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450163] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450166] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450183] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450199] 
+[  114.450203] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.450208] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.450212] EIP is at native_safe_halt+0xa/0x10
+[  114.450215] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.450218] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.450222]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.450225] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.450228] Stack:
+[  114.450231]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.450237]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.450243]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.450249] Call Trace:
+[  114.450253]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450257]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450262]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450265] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.450292] Call Trace:
+[  114.450296]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450300]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450305]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450317] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450321] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450337] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450354] 
+[  114.450357] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.450362] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.450366] EIP is at native_safe_halt+0xa/0x10
+[  114.450369] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.450373] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.450376]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.450392] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.450397] Stack:
+[  114.450400]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.450406]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.450412]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.450417] Call Trace:
+[  114.450422]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450426]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450431]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450435] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.450462] Call Trace:
+[  114.450466]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450470]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450475]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450489] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450492] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450510] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450526] 
+[  114.450529] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.450534] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.450538] EIP is at native_safe_halt+0xa/0x10
+[  114.450542] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.450545] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.450549]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.450552] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.450555] Stack:
+[  114.450558]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.450564]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.450570]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.450575] Call Trace:
+[  114.450579]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450584]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450589]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450592] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.450619] Call Trace:
+[  114.450623]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450627]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450632]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450644] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450647] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450664] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450681] 
+[  114.450684] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.450689] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.450693] EIP is at native_safe_halt+0xa/0x10
+[  114.450696] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.450699] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.450703]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.450706] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.450709] Stack:
+[  114.450712]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.450718]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.450724]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.450729] Call Trace:
+[  114.450733]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450738]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450743]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450746] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.450773] Call Trace:
+[  114.450777]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450781]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450785]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450798] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450801] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450818] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450834] 
+[  114.450838] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.450842] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.450846] EIP is at native_safe_halt+0xa/0x10
+[  114.450849] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.450853] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.450856]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.450860] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.450863] Stack:
+[  114.450866]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.450872]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.450878]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.450887] Call Trace:
+[  114.450893]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450898]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450903]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450906] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.450933] Call Trace:
+[  114.450937]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.450941]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.450946]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.450959] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.450962] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450979] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.450996] 
+[  114.450999] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.451004] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.451008] EIP is at native_safe_halt+0xa/0x10
+[  114.451011] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.451014] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.451018]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.451021] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.451024] Stack:
+[  114.451027]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.451033]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.451039]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.451045] Call Trace:
+[  114.451049]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451053]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451058]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451061] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.451088] Call Trace:
+[  114.451092]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451096]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451101]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451113] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.451116] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451133] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451150] 
+[  114.451153] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.451158] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.451162] EIP is at native_safe_halt+0xa/0x10
+[  114.451165] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.451168] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.451172]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.451175] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.451178] Stack:
+[  114.451181]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.451187]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.451193]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.451199] Call Trace:
+[  114.451202]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451207]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451212]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451215] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.451242] Call Trace:
+[  114.451246]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451250]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451255]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451267] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.451271] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451288] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451304] 
+[  114.451307] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.451312] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.451316] EIP is at native_safe_halt+0xa/0x10
+[  114.451319] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.451323] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.451326]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.451330] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.451333] Stack:
+[  114.451336]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.451342]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.451347]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.451353] Call Trace:
+[  114.451357]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451362]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451366]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451370] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.451412] Call Trace:
+[  114.451417]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451421]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451426]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451440] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.451443] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451461] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451478] 
+[  114.451481] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.451486] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.451490] EIP is at native_safe_halt+0xa/0x10
+[  114.451493] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.451497] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.451500]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.451503] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.451507] Stack:
+[  114.451509]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.451515]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.451521]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.451527] Call Trace:
+[  114.451531]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451535]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451540]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451543] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.451570] Call Trace:
+[  114.451574]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451578]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451583]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451595] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.451598] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451615] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451632] 
+[  114.451635] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.451640] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.451644] EIP is at native_safe_halt+0xa/0x10
+[  114.451647] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.451650] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.451654]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.451657] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.451660] Stack:
+[  114.451663]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.451669]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.451675]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.451681] Call Trace:
+[  114.451685]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451689]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451694]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451698] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.451732] Call Trace:
+[  114.451738]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451742]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451747]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451759] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.451763] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451780] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451797] 
+[  114.451800] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.451805] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.451809] EIP is at native_safe_halt+0xa/0x10
+[  114.451813] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.451816] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.451820]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.451823] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.451827] Stack:
+[  114.451830]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.451836]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.451842]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.451848] Call Trace:
+[  114.451852]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451857]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451861]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451865] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.451915] Call Trace:
+[  114.451922]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.451928]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.451935]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.451951] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.451963] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451987] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.451996] 
+[  114.452093] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.452099] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.452105] EIP is at native_safe_halt+0xa/0x10
+[  114.452109] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.452113] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.452118]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.452122] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.452127] Stack:
+[  114.452131]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.452139]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.452146]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.452154] Call Trace:
+[  114.452160]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.452165]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.452171]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.452175] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.452212] Call Trace:
+[  114.452217]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.452223]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.452229]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.452416] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.452421] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.452481] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.452503] 
+[  114.452507] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.452513] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.452519] EIP is at native_safe_halt+0xa/0x10
+[  114.452523] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.452527] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.452531]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.452536] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.452540] Stack:
+[  114.452544]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.452551]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.452558]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.452566] Call Trace:
+[  114.452571]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.452577]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.452583]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.452587] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.452645] Call Trace:
+[  114.452651]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.452656]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.452662]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.454837] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.454861] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.454886] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.454916] 
+[  114.454921] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.454927] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.454933] EIP is at native_safe_halt+0xa/0x10
+[  114.454937] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.454941] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.454945]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.454950] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.454954] Stack:
+[  114.454958]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.454965]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.454973]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.454980] Call Trace:
+[  114.454986]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.454992]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.454998]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455002] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.455037] Call Trace:
+[  114.455042]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455047]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455053]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455068] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.455072] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.455094] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.455115] 
+[  114.455119] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.455126] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.455131] EIP is at native_safe_halt+0xa/0x10
+[  114.455135] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.455139] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.455144]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.455148] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.455152] Stack:
+[  114.455156]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.455163]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.455170]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.455178] Call Trace:
+[  114.455183]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455189]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455195]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455199] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.455235] Call Trace:
+[  114.455240]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455245]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455251]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455265] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.455269] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.455291] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.455313] 
+[  114.455317] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.455323] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.455328] EIP is at native_safe_halt+0xa/0x10
+[  114.455333] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.455337] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.455341]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.455354] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.455449] Stack:
+[  114.455453]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.455461]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.455469]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.455478] Call Trace:
+[  114.455484]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455490]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455504]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455508] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.455544] Call Trace:
+[  114.455550]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455557]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455563]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455577] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.455581] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.455604] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.455626] 
+[  114.455630] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.455636] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.455641] EIP is at native_safe_halt+0xa/0x10
+[  114.455645] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.455648] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.455668]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.455673] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.455678] Stack:
+[  114.455686]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.455698]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.455767]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.455775] Call Trace:
+[  114.455782]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455787]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455794]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.455798] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.455834] Call Trace:
+[  114.455840]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.455854]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.455860]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457455] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.457459] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457477] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457494] 
+[  114.457498] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.457504] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.457508] EIP is at native_safe_halt+0xa/0x10
+[  114.457512] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.457516] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.457520]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.457523] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.457527] Stack:
+[  114.457530]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.457536]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.457542]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.457549] Call Trace:
+[  114.457553]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.457558]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.457563]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457567] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.457594] Call Trace:
+[  114.457599]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.457603]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.457608]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457624] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.457628] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457645] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457662] 
+[  114.457665] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.457670] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.457674] EIP is at native_safe_halt+0xa/0x10
+[  114.457678] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.457682] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.457685]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.457689] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.457693] Stack:
+[  114.457696]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.457702]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.457708]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.457714] Call Trace:
+[  114.457718]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.457723]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.457727]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457731] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.457758] Call Trace:
+[  114.457762]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.457767]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.457771]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457787] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.457790] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457807] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457824] 
+[  114.457827] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.457832] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.457836] EIP is at native_safe_halt+0xa/0x10
+[  114.457839] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.457843] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.457846]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.457850] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.457853] Stack:
+[  114.457856]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.457862]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.457868]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.457874] Call Trace:
+[  114.457878]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.457883]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.457903]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457907] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.457934] Call Trace:
+[  114.457939]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.457943]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.457948]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.457964] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.457967] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.457985] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458002] 
+[  114.458006] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.458010] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.458015] EIP is at native_safe_halt+0xa/0x10
+[  114.458018] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.458022] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.458026]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.458029] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.458032] Stack:
+[  114.458035]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.458041]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.458047]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.458053] Call Trace:
+[  114.458057]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458062]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458067]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458070] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.458097] Call Trace:
+[  114.458101]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458105]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458110]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458126] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.458129] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458146] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458163] 
+[  114.458166] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.458171] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.458175] EIP is at native_safe_halt+0xa/0x10
+[  114.458179] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.458182] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.458186]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.458189] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.458192] Stack:
+[  114.458195]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.458201]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.458207]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.458213] Call Trace:
+[  114.458217]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458222]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458226]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458230] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.458257] Call Trace:
+[  114.458261]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458266]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458270]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458286] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.458289] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458306] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458323] 
+[  114.458326] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.458331] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.458335] EIP is at native_safe_halt+0xa/0x10
+[  114.458338] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.458342] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.458345]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.458349] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.458352] Stack:
+[  114.458355]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.458361]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.458367]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.458373] Call Trace:
+[  114.458377]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458404]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458412]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458416] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.458443] Call Trace:
+[  114.458447]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458452]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458457]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458474] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.458477] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458495] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458512] 
+[  114.458515] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.458520] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.458525] EIP is at native_safe_halt+0xa/0x10
+[  114.458528] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.458531] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.458535]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.458538] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.458542] Stack:
+[  114.458544]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.458551]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.458557]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.458562] Call Trace:
+[  114.458567]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458572]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458579]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458583] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.458620] Call Trace:
+[  114.458625]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458631]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458638]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458659] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.458663] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458688] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.458712] 
+[  114.458716] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.458724] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.458729] EIP is at native_safe_halt+0xa/0x10
+[  114.458734] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.458739] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.458744]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.458749] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.458753] Stack:
+[  114.458757]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.458965]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.458972]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.458978] Call Trace:
+[  114.458983]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.458988]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.458993]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.458996] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.459024] Call Trace:
+[  114.459028]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459032]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459037]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459054] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.459057] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459075] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459092] 
+[  114.459096] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.459101] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.459105] EIP is at native_safe_halt+0xa/0x10
+[  114.459109] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.459112] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.459116]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.459120] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.459123] Stack:
+[  114.459126]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.459132]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.459138]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.459144] Call Trace:
+[  114.459148]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459153]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459158]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459162] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.459188] Call Trace:
+[  114.459193]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459197]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459202]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459218] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.459221] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459238] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459254] 
+[  114.459258] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.459263] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.459267] EIP is at native_safe_halt+0xa/0x10
+[  114.459270] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.459274] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.459278]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.459282] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.459285] Stack:
+[  114.459288]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.459294]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.459300]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.459306] Call Trace:
+[  114.459310]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459315]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459320]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459323] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.459350] Call Trace:
+[  114.459354]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459359]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459364]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459384] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.459388] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459405] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459422] 
+[  114.459425] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.459430] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.459434] EIP is at native_safe_halt+0xa/0x10
+[  114.459438] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.459441] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.459445]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.459449] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.459452] Stack:
+[  114.459455]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.459461]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.459467]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.459473] Call Trace:
+[  114.459477]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459482]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459487]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459491] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.459518] Call Trace:
+[  114.459522]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459526]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459531]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459547] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.459550] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459567] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459584] 
+[  114.459587] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.459592] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.459596] EIP is at native_safe_halt+0xa/0x10
+[  114.459600] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.459603] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.459607]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.459611] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.459614] Stack:
+[  114.459617]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.459623]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.459630]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.459636] Call Trace:
+[  114.459640]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459644]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459649]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459653] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.459680] Call Trace:
+[  114.459684]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459688]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459693]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459709] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.459712] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459729] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459746] 
+[  114.459750] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.459754] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.459759] EIP is at native_safe_halt+0xa/0x10
+[  114.459762] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.459766] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.459769]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.459773] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.459777] Stack:
+[  114.459780]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.459786]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.459792]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.459797] Call Trace:
+[  114.459802]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459806]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459811]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459815] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.459842] Call Trace:
+[  114.459846]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.459851]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.459856]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.459875] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.459880] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459903] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.459928] 
+[  114.459933] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.459939] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.459945] EIP is at native_safe_halt+0xa/0x10
+[  114.459950] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.459954] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.459959]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.459964] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.459968] Stack:
+[  114.459972]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.459980]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.459989]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.459996] Call Trace:
+[  114.460067]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.460073]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.460080]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.460084] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.460123] Call Trace:
+[  114.460128]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.460134]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.460141]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.460317] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.460322] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.460436] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.460460] 
+[  114.460465] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.460471] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.460477] EIP is at native_safe_halt+0xa/0x10
+[  114.460481] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.460486] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.460491]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.460496] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.460501] Stack:
+[  114.460504]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.460513]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.460521]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.460529] Call Trace:
+[  114.460535]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.460542]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.460548]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.460553] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.460590] Call Trace:
+[  114.460596]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.460602]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.460608]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.464778] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.464782] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.464802] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.464819] 
+[  114.464823] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.464829] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.464834] EIP is at native_safe_halt+0xa/0x10
+[  114.464838] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.464842] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.464846]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.464849] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.464853] Stack:
+[  114.464856]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.464862]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.464868]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.464875] Call Trace:
+[  114.464881]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.464888]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.464895]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.464900] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.464960] Call Trace:
+[  114.464992]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.464999]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465006]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.465027] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.465031] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.465056] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.465080] 
+[  114.465085] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.465092] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.465098] EIP is at native_safe_halt+0xa/0x10
+[  114.465102] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.465107] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.465111]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.465116] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.465121] Stack:
+[  114.465125]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.465133]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.465141]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.465150] Call Trace:
+[  114.465156]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.465162]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465169]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.465175] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.465213] Call Trace:
+[  114.465218]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.465225]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465231]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.465252] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.465256] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.465279] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.465302] 
+[  114.465307] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.465314] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.465319] EIP is at native_safe_halt+0xa/0x10
+[  114.465324] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.465329] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.465334]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.465339] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.465343] Stack:
+[  114.465347]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.465355]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.465364]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.465372] Call Trace:
+[  114.465378]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.465384]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465391]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.465494] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.465534] Call Trace:
+[  114.465540]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.465546]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465553]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.465580] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.465585] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.465610] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.465634] 
+[  114.465639] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.465646] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.465652] EIP is at native_safe_halt+0xa/0x10
+[  114.465656] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.465662] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.465667]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.465672] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.465676] Stack:
+[  114.465680]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.465688]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.465697]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.465752] Call Trace:
+[  114.465758]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.465765]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465771]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.465776] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.465814] Call Trace:
+[  114.465820]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.465826]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.465832]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466001] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.466027] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466098] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466129] 
+[  114.466134] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.466140] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.466146] EIP is at native_safe_halt+0xa/0x10
+[  114.466150] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.466155] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.466159]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.466164] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.466168] Stack:
+[  114.466172]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.466180]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.466187]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.466195] Call Trace:
+[  114.466200]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466206]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466212]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466217] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.466253] Call Trace:
+[  114.466259]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466265]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466270]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466291] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.466295] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466318] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466340] 
+[  114.466344] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.466351] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.466356] EIP is at native_safe_halt+0xa/0x10
+[  114.466360] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.466364] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.466369]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.466373] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.466377] Stack:
+[  114.466381]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.466389]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.466397]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.466404] Call Trace:
+[  114.466410]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466415]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466421]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466426] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.466491] Call Trace:
+[  114.466496]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466501]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466506]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466523] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.466526] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466544] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466583] 
+[  114.466587] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.466592] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.466597] EIP is at native_safe_halt+0xa/0x10
+[  114.466600] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.466603] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.466607]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.466610] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.466614] Stack:
+[  114.466617]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.466623]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.466629]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.466635] Call Trace:
+[  114.466639]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466644]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466649]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466652] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.466679] Call Trace:
+[  114.466684]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466688]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466693]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466779] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.466783] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466801] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466818] 
+[  114.466821] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.466826] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.466831] EIP is at native_safe_halt+0xa/0x10
+[  114.466834] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.466838] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.466841]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.466845] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.466848] Stack:
+[  114.466851]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.466857]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.466863]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.466869] Call Trace:
+[  114.466874]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466879]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466884]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466888] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.466915] Call Trace:
+[  114.466919]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.466923]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.466928]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.466957] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.466961] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466979] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.466996] 
+[  114.466999] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.467004] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.467008] EIP is at native_safe_halt+0xa/0x10
+[  114.467011] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.467015] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.467019]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.467022] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.467026] Stack:
+[  114.467029]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.467035]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.467041]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.467047] Call Trace:
+[  114.467052]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467057]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467061]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467065] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.467092] Call Trace:
+[  114.467096]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467101]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467105]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467122] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.467125] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467142] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467159] 
+[  114.467163] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.467168] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.467172] EIP is at native_safe_halt+0xa/0x10
+[  114.467175] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.467179] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.467183]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.467186] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.467190] Stack:
+[  114.467193]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.467199]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.467205]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.467211] Call Trace:
+[  114.467215]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467220]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467225]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467229] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.467256] Call Trace:
+[  114.467260]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467265]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467269]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467286] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.467289] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467306] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467323] 
+[  114.467327] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.467332] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.467336] EIP is at native_safe_halt+0xa/0x10
+[  114.467339] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.467343] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.467347]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.467351] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.467354] Stack:
+[  114.467357]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.467364]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.467369]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.467375] Call Trace:
+[  114.467380]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467384]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467389]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467393] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.467420] Call Trace:
+[  114.467424]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467429]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467433]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467472] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.467477] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467497] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467514] 
+[  114.467518] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.467523] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.467527] EIP is at native_safe_halt+0xa/0x10
+[  114.467530] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.467534] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.467538]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.467541] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.467545] Stack:
+[  114.467548]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.467554]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.467559]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.467565] Call Trace:
+[  114.467570]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467574]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467579]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467583] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.467615] Call Trace:
+[  114.467622]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467627]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467633]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467650] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.467653] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467670] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467686] 
+[  114.467690] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.467694] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.467698] EIP is at native_safe_halt+0xa/0x10
+[  114.467702] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.467705] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.467709]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.467714] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.467719] Stack:
+[  114.467722]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.467728]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.467734]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.467740] Call Trace:
+[  114.467746]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467753]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467759]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467762] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.467789] Call Trace:
+[  114.467793]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467797]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467802]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467818] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.467822] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467839] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.467856] 
+[  114.467859] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.467864] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.467868] EIP is at native_safe_halt+0xa/0x10
+[  114.467872] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.467881] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.467881]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.467882] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.467887] Stack:
+[  114.467903]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.467910]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.467917]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.467957] Call Trace:
+[  114.467962]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.467967]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.467972]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.467975] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.467996] Call Trace:
+[  114.468077]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.468085]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.468092]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.755718] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.755723] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.755749] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.755767] 
+[  114.755771] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.755777] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.755784] EIP is at native_safe_halt+0xa/0x10
+[  114.755788] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.755791] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.755795]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.755799] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.755802] Stack:
+[  114.755806]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.755812]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.755818]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.755824] Call Trace:
+[  114.755830]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.755836]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.755843]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.755846] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.755874] Call Trace:
+[  114.755878]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.755883]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.755888]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.755892] BUG: scheduling while atomic: swapper/1/0/0x10000100
+[  114.755895] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.755912] Modules linked in: fw(O) vesafb vboxsf(O) snd_intel8x0 snd_ac97_codec ac97_bus snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer snd_seq_device video psmouse joydev snd mac_hid vboxvideo(O) serio_raw parport_pc bnep rfcomm bluetooth drm ppdev vboxguest(O) i2c_piix4 soundcore snd_page_alloc lp parport usbhid hid e1000
+[  114.755929] 
+[  114.755932] Pid: 0, comm: swapper/1 Tainted: G           O 3.2.0-37-generic-pae #58-Ubuntu innotek GmbH VirtualBox/VirtualBox
+[  114.755937] EIP: 0060:[<c1035d2a>] EFLAGS: 00000246 CPU: 1
+[  114.755943] EIP is at native_safe_halt+0xa/0x10
+[  114.755956] EAX: 00000000 EBX: 00000001 ECX: 00000000 EDX: 00000000
+[  114.755960] ESI: c18752f8 EDI: 8b9cc110 EBP: f50abf5c ESP: f50abf5c
+[  114.755964]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+[  114.755968] Process swapper/1 (pid: 0, ti=f50ae000 task=f50a0cb0 task.ti=f50aa000)
+[  114.755971] Stack:
+[  114.755974]  f50abf7c c1018b6a 00000282 00000001 00000001 00000001 c18752f8 8b9cc110
+[  114.755981]  f50abf98 c10107d8 c011f68e 8b9cc110 9819b236 00000000 00000000 f50abfac
+[  114.755987]  c158b3ab c8fa3962 9819b236 01020800 00000000 00000000 00000000 00000000
+[  114.755993] Call Trace:
+[  114.755996]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.756125]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.756132]  [<c158b3ab>] start_secondary+0xe8/0xed
+[  114.756136] Code: 00 55 89 e5 3e 8d 74 26 00 fa 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb 5d c3 90 8d 74 26 00 55 89 e5 3e 8d 74 26 00 fb f4 <5d> c3 8d 74 26 00 55 89 e5 3e 8d 74 26 00 f4 5d c3 90 8d 74 26 
+[  114.756198] Call Trace:
+[  114.756203]  [<c1018b6a>] default_idle+0x4a/0x190
+[  114.756209]  [<c10107d8>] cpu_idle+0xa8/0xe0
+[  114.756215]  [<c158b3ab>] start_secondary+0xe8/0xed

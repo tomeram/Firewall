@@ -1,0 +1,2 @@
+sudo ./a.out firewall_activation 1
+sudo ./a.out load_rule_table_from_file rules.txt

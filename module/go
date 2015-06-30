@@ -1,0 +1,4 @@
+sudo rmmod fw
+make clean
+make
+sudo insmod fw.ko
