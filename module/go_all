@@ -15,16 +15,16 @@ echo "Done" &&
 echo "" &&
 echo "Activate" &&
 echo "" &&
-sudo ./../user/a.out firewall_activation 1 &&
+sudo ./../interface/a.out firewall_activation 1 &&
 echo "Done" &&
 
 echo "" &&
 echo "" &&
 echo "Load rules" &&
 echo "" &&
-sudo ./../interface/a.out load_rule_table_from_file ../user/rules.txt &&
-echo "Done"
+sudo ./../interface/a.out load_rule_table_from_file ../interface/rules.txt &&
+echo "Done" &&
 
-echo ""
-echo ""
+echo "" &&
+echo "" &&
 sudo make clean

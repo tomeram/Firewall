@@ -7,11 +7,21 @@
 
 /** Structs and Types **/
 typedef enum {
+	FTP,
+	HTTP,
+	OTHER_TCP
+} tcp_type;
+
+typedef enum {
 	FTP_HANDSHAKE,
 	FTP_CONNECTED,
 	FTP_TRANSFER,
 	FTP_END
 } ftp_state_enum;
+
+typedef enum {
+	HTTP_HANDSHAKE
+} http_state_enum;
 
 // Dynamic Rule
 typedef struct {
@@ -40,6 +50,7 @@ extern dynamic_rule_link *dynamic_table;
 void clear_dynamic_rules(void);
 dynamic_rule_link *create_dynamic_rule(rule_t input);
 int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule);
+int update_http_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule);
 int update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule);
 int check_dynamic_action(rule_t input, struct tcphdr *tcph);
 

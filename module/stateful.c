@@ -29,7 +29,6 @@ void clear_dynamic_rules(void) {
 }
 
 dynamic_rule_link *create_dynamic_rule(rule_t input) {
-	// TODO: should I create rule for both directions?
 	// Create rule, and add to table
 	dynamic_rule_link 	* new_link = kmalloc(sizeof(dynamic_rule_link), GFP_ATOMIC);
 	dynamic_rule		* rule = NULL;
@@ -58,6 +57,9 @@ dynamic_rule_link *create_dynamic_rule(rule_t input) {
 	if (ntohs(input.dst_port) == 21) {
 		rule->protocol 	= FTP;
 		rule->ftp_state = FTP_HANDSHAKE;
+	} else if (ntohs(input.dst_port) == 80) {
+		rule->protocol 		= HTTP;
+		rule->http_state 	= HTTP_HANDSHAKE;
 	} else {
 		rule->protocol = OTHER_TCP;
 	}
@@ -117,7 +119,9 @@ int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcp
 		case FTP_TRANSFER:
 			// TODO
 			printk(KERN_INFO "FTP: Transfering\n");
-
+			if (tcph->fin) {
+				rule->ftp_state = FTP_END;
+			}
 			break;
 		case FTP_END:
 			if (!(tcph->ack || tcph->fin)) {
@@ -135,13 +139,19 @@ int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcp
 	return 1;
 }
 
+int update_http_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule) {
+
+	return 1;
+}
+
 int update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule) {
 	if (curr->rule.protocol == FTP) {
 		return update_ftp_rule(curr, prev, tcph, s_rule);
+	} else if (curr->rule.protocol == HTTP) {
+		return update_http_rule(curr, prev, tcph, s_rule);
+	} else {
+		return 1;
 	}
-	// TODO: http, other
-
-	return 1;
 }
 
 int check_dynamic_action(rule_t input, struct tcphdr *tcph) {

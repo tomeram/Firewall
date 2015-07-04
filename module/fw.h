@@ -71,16 +71,6 @@ typedef enum {
 	REASON_ILLEGAL_VALUE         = -6,
 } reason_t;
 
-typedef enum {
-	FTP			= 1,
-	HTTP		= 2,
-	OTHER_TCP	= 3
-} tcp_type;
-
-typedef enum {
-	HTTP_HANDSHAKE	= 0
-} http_state_enum;
-
 // device minor numbers, for your convenience
 typedef enum {
 	MINOR_RULES    = 0,
