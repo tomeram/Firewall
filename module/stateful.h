@@ -1,11 +1,18 @@
-/*** Statefull Inspection ***/
-#ifndef _STATEFULL_H_
-#define _STATEFULL_H_
+/*** Stateful Inspection ***/
+#ifndef _STATEFUL_H_
+#define _STATEFUL_H_
 
 #include "fw.h"
 #include "stateless.h"
 
 /** Structs and Types **/
+typedef enum {
+	FTP_HANDSHAKE,
+	FTP_CONNECTED,
+	FTP_TRANSFER,
+	FTP_END
+} ftp_state_enum;
+
 // Dynamic Rule
 typedef struct {
 	__be32 			src_ip;
@@ -31,9 +38,9 @@ extern dynamic_rule_link *dynamic_table;
 
 /** Functions **/
 void clear_dynamic_rules(void);
-void create_dynamic_rule(rule_t input, struct tcphdr *tcph);
-void update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph);
-void update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph);
+dynamic_rule_link *create_dynamic_rule(rule_t input);
+int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule);
+int update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule);
 int check_dynamic_action(rule_t input, struct tcphdr *tcph);
 
-#endif // _STATEFULL_H_
+#endif // _STATEFUL_H_

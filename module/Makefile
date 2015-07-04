@@ -1,6 +1,6 @@
 ifneq ($(KERNELRELEASE),)
 	obj-m := fw.o
-	fw-objs := fwmod.o stateless.o statefull.o log.o
+	fw-objs := fwmod.o stateless.o stateful.o log.o
 
 else
 	KDIR :=/lib/modules/$(shell uname -r)/build

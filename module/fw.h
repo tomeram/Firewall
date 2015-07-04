@@ -78,10 +78,6 @@ typedef enum {
 } tcp_type;
 
 typedef enum {
-	FTP_HANDSHAKE	= 0
-} ftp_state_enum;
-
-typedef enum {
 	HTTP_HANDSHAKE	= 0
 } http_state_enum;
 

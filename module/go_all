@@ -3,24 +3,27 @@ sudo rmmod fw
 
 echo "make"
 echo ""
-sudo make
+sudo make &&
 
-echo ""
-echo ""
-echo "insmod"
-echo ""
-sudo insmod fw.ko
+echo "" &&
+echo "" &&
+echo "insmod" &&
+echo "" &&
+sudo insmod fw.ko &&
+echo "Done" &&
 
-echo ""
-echo "Activate"
-echo ""
-sudo ./../user/a.out firewall_activation 1
+echo "" &&
+echo "Activate" &&
+echo "" &&
+sudo ./../user/a.out firewall_activation 1 &&
+echo "Done" &&
 
-echo ""
-echo ""
-echo "Load rules"
-echo ""
-sudo ./../user/a.out load_rule_table_from_file ../user/rules.txt
+echo "" &&
+echo "" &&
+echo "Load rules" &&
+echo "" &&
+sudo ./../interface/a.out load_rule_table_from_file ../user/rules.txt &&
+echo "Done"
 
 echo ""
 echo ""

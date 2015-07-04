@@ -1,4 +1,4 @@
-#include "statefull.h"
+#include "stateful.h"
 
 /** Globals **/
 int num_of_dynamic_rules 			= 0;
@@ -28,7 +28,7 @@ void clear_dynamic_rules(void) {
 	}
 }
 
-void create_dynamic_rule(rule_t input, struct tcphdr *tcph) {
+dynamic_rule_link *create_dynamic_rule(rule_t input) {
 	// TODO: should I create rule for both directions?
 	// Create rule, and add to table
 	dynamic_rule_link 	* new_link = kmalloc(sizeof(dynamic_rule_link), GFP_ATOMIC);
@@ -41,14 +41,14 @@ void create_dynamic_rule(rule_t input, struct tcphdr *tcph) {
 
 	if (new_link == NULL) {
 		printk(KERN_INFO "Error in kmalloc: could not allocate a dynamic rule.\n");
-		return;
+		return NULL;
 	}
 
 	new_link->next = dynamic_table; // Add to dynamic table
 	dynamic_table = new_link;
 
 	rule = &new_link->rule;
-	
+
 	rule->src_ip	= input.src_ip;
 	rule->dst_ip	= input.dst_ip;
 	rule->src_port	= input.src_port;
@@ -63,29 +63,85 @@ void create_dynamic_rule(rule_t input, struct tcphdr *tcph) {
 	}
 
 	num_of_dynamic_rules++;
-	printk(KERN_INFO "Size of of dynamic table: %d", num_of_dynamic_rules);
+	// printk(KERN_INFO "Size of of dynamic table: %d\n", num_of_dynamic_rules);
+
+	return new_link;
 }
 
-void update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph) {
+int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule) {
 	// TODO: ftp
-	char 			* data = (char *)((int)tcph + (int)(tcph->doff * 4));
-	dynamic_rule 	* rule = &curr->rule;
+	char 				* data 	= (char *)((int)tcph + (int)(tcph->doff * 4));
+	dynamic_rule 		* rule 	= &curr->rule;
+	dynamic_rule_link 	* new_link = NULL;
+	int	ip_1, ip_2, ip_3, ip_4, port_1, port_2;
+	int update_timestamp = 1;
+
+	struct timeval 		s_time;
+	unsigned long 		curr_time;
+
+	do_gettimeofday(&s_time);
+	curr_time = (u32)s_time.tv_sec;
+
 
 	printk(KERN_INFO "data: %s\n", data);
 
 	switch(rule->ftp_state) {
 		case FTP_HANDSHAKE:
-			printk(KERN_INFO "FTP_HANDSHAKE\n");
+			if (!strnicmp(data, "230", 3)) {
+				printk(KERN_INFO "FTP: Server accepted connection.\n");
+				rule->ftp_state = FTP_CONNECTED;
+			} else {
+				printk(KERN_INFO "FTP: Awaiting server connection approval.\n");
+			}
+			break;
+		case FTP_CONNECTED:
+			if (!strnicmp(data, "PORT", 4)) {
+				printk(KERN_INFO "FTP: Switching to data transfer mode.\n");
+
+				// Create new rule
+				 new_link = create_dynamic_rule(s_rule);
+
+				// Getting the new IP and port
+				sscanf(data, "PORT %d,%d,%d,%d,%d,%d", &ip_1, &ip_2, &ip_3, &ip_4, &port_1, &port_2);
+				new_link->rule.src_ip 	= ntohl((ip_1<<24) + (ip_2<<16) + (ip_3<<8) + ip_4);
+				new_link->rule.src_port = htons((port_1 * 256) + port_2);
+				new_link->rule.dst_port = htons(20);
+
+				new_link->rule.protocol		= FTP;
+				new_link->rule.ftp_state 	= FTP_TRANSFER;
+			} else if (!strnicmp(data, "QUIT", 4)) {
+				printk(KERN_INFO "FTP: Closing connection.\n");
+				rule->ftp_state = FTP_END;
+			}
+			break;
+		case FTP_TRANSFER:
+			// TODO
+			printk(KERN_INFO "FTP: Transfering\n");
+
+			break;
+		case FTP_END:
+			if (!(tcph->ack || tcph->fin)) {
+				return 0;
+			}
+
+			update_timestamp = 0;
 			break;
 	}
 
+	if (update_timestamp) {
+		rule->timestamp = curr_time;
+	}
+
+	return 1;
 }
 
-void update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph) {
+int update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule) {
 	if (curr->rule.protocol == FTP) {
-		update_connection_state(curr, prev, tcph);
+		return update_ftp_rule(curr, prev, tcph, s_rule);
 	}
 	// TODO: http, other
+
+	return 1;
 }
 
 int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
@@ -119,22 +175,20 @@ int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
 
 			num_of_dynamic_rules--;
 
-			printk(KERN_INFO "Size of of dynamic table: %d\n", num_of_dynamic_rules);
+			// printk(KERN_INFO "Size of of dynamic table: %d\n", num_of_dynamic_rules);
 			continue;
 		}
 
-
-		// TODO: Am I supposed check in the other direction too?
+		// printk(KERN_INFO "input: src_ip: %d.%d.%d.%d, src_port: %d, dst_ip: %d.%d.%d.%d, dst_port: %d\n", NIPQUAD(input.src_ip), input.src_port, NIPQUAD(input.dst_ip), input.dst_port);
+		// printk(KERN_INFO "curr_rule: src_ip: %d.%d.%d.%d, src_port: %d, dst_ip: %d.%d.%d.%d, dst_port: %d\n", NIPQUAD(rule->src_ip), rule->src_port, NIPQUAD(rule->dst_ip), rule->dst_port);
+		// Check if this is a matching rule
 		if ((rule->src_ip == input.src_ip && rule->src_port == input.src_port 
 					&& rule->dst_ip == input.dst_ip && rule->dst_port == input.dst_port) ||
 			(rule->src_ip == input.dst_ip && rule->src_port == input.dst_port 
 					&& rule->dst_ip == input.src_ip && rule->dst_port == input.src_port)) {
+			
 			printk(KERN_INFO "Found matching dynamic_rule.\n");
-			// TODO update state
-			rule->timestamp = curr_time;
-			update_connection_state(curr, prev, tcph);
-
-			return 1;
+			return update_connection_state(curr, prev, tcph, input);
 		}
 
 		prev = curr;
@@ -142,6 +196,6 @@ int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
 	}
 
 	// No rule found, check if the connection is new, and create a rule accordingly
-	printk(KERN_INFO "No rule found in dynamic table - Packet dropped.\n");
+	printk(KERN_INFO "No rule found in dynamic table.\n");
 	return 0;
 }

@@ -1,7 +1,7 @@
 /*** Main FW File ***/
 #include "fw.h"
 #include "stateless.h"
-#include "statefull.h"
+#include "stateful.h"
 #include "log.h"
 
 /****** Global Vars ******/
@@ -37,7 +37,6 @@ int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
 	struct iphdr    * iph;
 	struct tcphdr   * tcph;
 	struct udphdr   * udph;
-
 
 	input.src_ip 	= *((unsigned int *)(skb->data + 12));
 	input.dst_ip 	= *((unsigned int *)(skb->data + 16));
@@ -87,22 +86,35 @@ int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
 		}
 	}
 
-	if (input.protocol != PROT_TCP || 
-		(input.protocol == PROT_TCP && !tcph->ack)) {
-		// No need to do the dynamic test, since the static rules come first
-		if(check_static_action(input, hooknum)) {
-			if (input.protocol == PROT_TCP) {
-				create_dynamic_rule(input, tcph);
-			}
+	// if (input.protocol != PROT_TCP || 
+	// 	(input.protocol == PROT_TCP && !tcph->ack)) {
+	// 	// No need to do the dynamic test, since the static rules come first
+	// 	if(check_static_action(input, hooknum)) {
+	// 		if (input.protocol == PROT_TCP) {
+	// 			create_dynamic_rule(input);
+	// 		}
 
+	// 		return 1;
+	// 	} else {
+	// 		return 0;
+	// 	}
+	// }
+
+	// // Check dynamic rule table
+	// return check_dynamic_action(input, tcph);
+
+	if (input.protocol == PROT_TCP) {
+		if (check_dynamic_action(input, tcph)) {
+			return 1;
+		} else if (check_static_action(input, hooknum)) {
+			create_dynamic_rule(input);
 			return 1;
 		} else {
 			return 0;
 		}
 	}
 
-	// Check dynamic rule table
-	return check_dynamic_action(input, tcph);
+	return check_static_action(input, hooknum);
 }
 
 /* Hook Function */
