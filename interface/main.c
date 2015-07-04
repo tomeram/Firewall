@@ -51,6 +51,38 @@ int main(int argc, char const *argv[]) {
 		return 0;
 	}
 
+	/****** Show Rule Table ******/
+	if (strcmp(argv[1], "show_connection_table") == 0) {
+		fd = open("/sys/class/fw/conn_tab/conn_tab", O_RDONLY);
+
+		if (fd < 0) {
+			perror("open(conn_tab)");
+		}
+
+		read(fd, buf, 100);
+
+		len = atoi(buf);
+
+		close(fd);
+
+		for (i = 0; i < len; i++) {
+			bzero(buf, 100);
+			fd = open("/dev/conn_tab", O_RDONLY);
+
+			if (fd < 0) {
+				perror("open(conn_tab)");
+			}
+
+			read(fd, buf, 100);
+
+			printf("%s", buf);
+
+			close(fd);
+		}
+
+		return 0;
+	}
+
 	/****** Clear Rule Talbe ******/
 	if (strcmp(argv[1], "clear_rule_table") == 0) {
 		char msg[22] = "clear_rule_table00000";
