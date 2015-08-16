@@ -168,6 +168,9 @@ static ssize_t log_store_func(struct device *dev, struct device_attribute *attr,
 static DEVICE_ATTR(fw_log, 0444, log_show_func, log_store_func);
 
 
+static int log_open(struct inode *inode, struct file *file) {
+	return 0;
+}
 
 log_link *curr_log_entry = NULL;
 
@@ -508,6 +511,7 @@ struct file_operations fops_active = {
 };
 
 struct file_operations fops_log = {
+	.open = log_open,
 	.read = read_log,
 	.write = clear_log_func,
 	.owner = THIS_MODULE	

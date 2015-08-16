@@ -1,8 +1,8 @@
 reset
 sudo rmmod fw
 
-echo "make"
-echo ""
+echo "make" &&
+echo "" &&
 sudo make &&
 
 echo "" &&
