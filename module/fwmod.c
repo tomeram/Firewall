@@ -3,6 +3,7 @@
 #include "stateless.h"
 #include "stateful.h"
 #include "log.h"
+#include "dlp.h"
 
 /****** Global Vars ******/
 int firewall_active = 0;
