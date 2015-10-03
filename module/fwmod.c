@@ -41,6 +41,8 @@ dev_t m_dev_log_size;
 /** Functions **/
 
 int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
+	int dynamic_action;
+
 	rule_t input;
 	struct iphdr    * iph;
 	struct tcphdr   * tcph;
@@ -95,7 +97,11 @@ int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
 	}
 
 	if (input.protocol == PROT_TCP) {
-		if (check_dynamic_action(input, tcph)) {
+		dynamic_action = check_dynamic_action(input, tcph);
+
+		if (dynamic_action == -1) {
+			return 0;
+		} else if (dynamic_action) {
 			return 1;
 		} else if (check_static_action(input, hooknum)) {
 			create_dynamic_rule(input);

