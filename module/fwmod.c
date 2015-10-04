@@ -103,7 +103,7 @@ int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
 			return 0;
 		} else if (dynamic_action) {
 			return 1;
-		} else if (check_static_action(input, hooknum)) {
+		} else if (check_static_action(input, hooknum) && input.ack == ACK_NO) {
 			create_dynamic_rule(input);
 			return 1;
 		} else {
@@ -488,7 +488,7 @@ static ssize_t read_dynamic(struct file *file, char __user * buffer, size_t leng
 		case HTTP:
 			strcat(buffer, "HTTP\n");
 			break;
-		case OTHER_TCP:
+		default:
 			strcat(buffer, "OTHER_TCP\n");
 			break;
 	}

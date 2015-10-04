@@ -60,6 +60,9 @@ dynamic_rule_link *create_dynamic_rule(rule_t input) {
 	} else if (ntohs(input.dst_port) == 80) {
 		rule->protocol 		= HTTP;
 		rule->http_state 	= HTTP_HANDSHAKE;
+	} else if (ntohs(input.dst_port) == 25) {
+		rule->protocol 		= SMTP;
+		rule->smtp_state 	= SMTP_INIT;
 	} else {
 		rule->protocol = OTHER_TCP;
 	}
@@ -118,7 +121,6 @@ int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcp
 			}
 			break;
 		case FTP_TRANSFER:
-			// TODO
 			printk(KERN_INFO "FTP: Transfering\n");
 			if (tcph->fin) {
 				rule->ftp_state = FTP_END;
@@ -137,6 +139,46 @@ int update_ftp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcp
 		rule->timestamp = curr_time;
 	}
 
+	return 1;
+}
+
+int update_smtp_rule(dynamic_rule_link *curr, dynamic_rule_link *prev, struct tcphdr *tcph, rule_t s_rule) {
+	char *data = (char *)((int)tcph + (int)(tcph->doff * 4));
+	dynamic_rule *rule = &curr->rule;
+
+	// Update rule timestamp
+	struct timeval 		s_time;
+
+	do_gettimeofday(&s_time);
+	rule->timestamp = (u32)s_time.tv_sec;
+
+	if (rule->smtp_state == SMTP_INIT) {
+		if (!strnicmp(data, "DATA", 4) || !strnicmp(data, "data", 4)) {
+			// DATA transminssion will begin in next transmission
+			rule->smtp_state = SMTP_DATA;
+
+			printk(KERN_INFO "SMTP: Movin to data stage.\n");
+		}
+	} else if (rule->smtp_state == SMTP_DATA) {
+		if (check_for_code(data)) {
+			printk("DLP: Code detected, communication blocked.");
+
+			// Delete rule from table
+			if (prev != NULL) {
+				prev->next = curr->next;
+				kfree(curr);
+				curr = prev->next;
+			} else {
+				// This is the first rule in the list.
+				dynamic_table = curr->next;
+				kfree(curr);
+				curr = dynamic_table;
+			}
+
+			return -1;
+		}
+	}
+	
 	return 1;
 }
 
@@ -243,6 +285,8 @@ int update_connection_state(dynamic_rule_link *curr, dynamic_rule_link *prev, st
 		return update_ftp_rule(curr, prev, tcph, s_rule);
 	} else if (curr->rule.protocol == HTTP) {
 		return update_http_rule(curr, prev, tcph, s_rule);
+	} else if (curr->rule.protocol == SMTP) {
+		return update_smtp_rule(curr, prev, tcph, s_rule);
 	} else {
 		return 1;
 	}
@@ -263,7 +307,8 @@ int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
 		rule = &curr->rule;
 
 		// Check rule timeout
-		if (curr_time - rule->timestamp > 25) {
+		//TODO: fix time
+		if (curr_time - rule->timestamp > 250000) {
 			printk(KERN_INFO "Rule Expired. Remove from table.\n");
 			// Rule default timeout -> remove and skip
 			if (prev != NULL) {
@@ -278,8 +323,6 @@ int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
 			}
 
 			num_of_dynamic_rules--;
-
-			// printk(KERN_INFO "Size of of dynamic table: %d\n", num_of_dynamic_rules);
 			continue;
 		}
 

@@ -4,12 +4,14 @@
 
 #include "fw.h"
 #include "stateless.h"
+#include "dlp.h"
 #include "zabbix.h"
 #include "sysax.h"
 
 /** Structs and Types **/
 typedef enum {
 	FTP,
+	SMTP,
 	HTTP,
 	OTHER_TCP
 } tcp_type;
@@ -20,6 +22,11 @@ typedef enum {
 	FTP_TRANSFER,
 	FTP_END
 } ftp_state_enum;
+
+typedef enum {
+	SMTP_INIT,
+	SMTP_DATA
+} smtp_state_enum;
 
 typedef enum {
 	HTTP_HANDSHAKE,
@@ -35,6 +42,7 @@ typedef struct {
 	__be16 			dst_port;
 	tcp_type 		protocol;
 	ftp_state_enum	ftp_state;
+	smtp_state_enum smtp_state;
 	http_state_enum	http_state;
 	unsigned long 	timestamp;	// To check if the rule is still relevant
 } dynamic_rule;
