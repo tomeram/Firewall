@@ -37,9 +37,11 @@ int skip_to_char(const char *data, int *pos, int len, char target_char) {
 
 int skip_to_closingbracket(const char *data, int pos, int len, char target) {
 	int reg = 0, sq = 0, curl = 0;
-	char curr = *(data + pos);
+	char curr;
 
 	while (pos < len) {
+		curr = *(data + pos);
+		
 		if (curr == target && target != '_') {
 			if (!reg && !sq && !curl) {
 				return pos;
@@ -77,7 +79,7 @@ int skip_to_closingbracket(const char *data, int pos, int len, char target) {
 		pos++;
 	}
 
-	if (!reg && !sq && !curl && target == '_') {
+	if (!reg && !sq && !curl) {
 		return pos;
 	}
 
@@ -93,7 +95,7 @@ int has_include(const char *data) {
 }
 
 int has_main(const char *data, int *pos, int len) {
-	char *main_pos = strstr(data, "main");
+	const char *main_pos = strstr(data, "main");
 	char curr;
 	int tmp;
 
@@ -139,8 +141,6 @@ int has_main(const char *data, int *pos, int len) {
 				main_pos = (data + tmp) + 1;
 				main_pos += skip_whitespaces(data, main_pos - data, len);
 
-				printk(KERN_INFO "here: %s\n", main_pos);
-
 				if (*main_pos == '{') {
 					main_pos++;
 					tmp = skip_to_closingbracket(data, main_pos - data, len, '}');
@@ -158,13 +158,148 @@ int has_main(const char *data, int *pos, int len) {
 	return 0;
 }
 
+int has_if(const char *data, int len) {
+	int tmp;
+	const char *if_pos = strstr(data, "if");
+
+	if (if_pos == NULL) {
+		return 0;
+	}
+
+	while (if_pos != NULL) {
+		if (if_pos > data) {
+			if (!isspace(*(if_pos - 1))) {
+				if_pos = strstr(data, "if");
+				continue;
+			}
+		}
+
+		if (!isspace(*(if_pos + 2)) && *(if_pos + 2) != '(') {
+			if_pos = strstr(data, "if");
+			continue;
+		}
+
+		break;
+	}
+
+	if (if_pos == NULL) {
+		return 0;
+	}
+			
+	if_pos += 2;
+	if_pos += skip_whitespaces(if_pos, 0, len);
+	
+	if (*if_pos != '(') {
+		return 0;
+	}
+
+	if_pos++;
+	tmp = skip_to_closingbracket(data, if_pos - data + 1, len, ')');
+
+	if (tmp < 0) {
+		return 0;
+	}
+
+	if_pos = (data + tmp) + 1;;
+	if_pos += skip_whitespaces(if_pos, 0, len);
+
+	if (*if_pos == '{') {
+		if_pos++;
+		tmp = skip_to_closingbracket(data, if_pos - data, len, '}');
+
+		if (tmp >= 0) {
+			printk(KERN_INFO "DLP: Found 'if' statement, Blocking message.");
+			return 1;
+		}
+	}
+
+	while (if_pos - data < len) {
+		if (*if_pos == ';') {
+			printk(KERN_INFO "DLP: Found 'if' statement, Blocking message.");
+			return 1;
+		} else {
+			if_pos++;
+		}
+	}
+
+	return 0;
+}
+
+const char *loop_start(const char *data, const char *loop_type, int len) {
+	int loop_len = strlen(loop_type);
+	const char *res = strstr(data, loop_type);
+
+	while (res != NULL) {
+		if (res > data) {
+			if (!isspace(*(res - 1))) {
+				res = strstr(data, loop_type);
+				continue;
+			}
+		}
+
+		res += loop_len;
+		res += skip_whitespaces(res, 0, len);
+
+		if (*(res) == '(') {
+			break;
+		}
+
+		res = strstr(data, loop_type);
+	}
+
+	return res;
+}
+
+int has_for(const char *data, int len) {
+	const char *loop_pos;
+	int tmp;
+	int count = 0;
+
+	loop_pos = loop_start(data, "for", len);
+
+	if (loop_pos == NULL) {
+		return 0;
+	}
+
+	// tmp = skip_to_closingbracket(data, loop_pos - data + 1, len, ')');
+
+	while (loop_pos - data < len) {
+		if (*loop_pos == ';') {
+			if (count < 3) {
+				count++;
+			} else {
+				// Too many ';'
+				return 0;
+			}
+		} else if (count == 3 && *loop_pos == ')') {
+			loop_pos++;
+			break;
+		}
+
+		loop_pos++;
+	}
+
+	loop_pos += skip_whitespaces(loop_pos, 0, len);
+
+	if (*loop_pos != '{') {
+		return 0;
+	}
+
+	loop_pos++;
+	tmp = skip_to_closingbracket(data, loop_pos - data, len, '}');
+
+	if (tmp >= 0) {
+		printk(KERN_INFO "DLP: Found 'for' loop, Blocking message.");
+		return 1;
+	}
+
+	return 0;
+}
+
 /** Returns 1 if code found and 1 otherwise **/
 int check_for_code(const char *data) {
 	int len = strlen(data);
 	int pos = 0;
-
-
-	printk(KERN_INFO "In DLP\n");
 
 	if (len == 0) {
 		// Empty message, Not code.
@@ -176,10 +311,11 @@ int check_for_code(const char *data) {
 		return 1;
 	} else if (has_main(data, &pos, len)) {
 		return 1;
+	} else if (has_if(data, len)) {
+		return 1;
+	} else if (has_for(data, len)) {
+		return 1;
 	}
-	// else if (has_if(data, len)) {
-	// 	return 1;
-	// }
 
 	return 0;
 }
