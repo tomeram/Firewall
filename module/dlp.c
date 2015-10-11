@@ -261,8 +261,6 @@ int has_for(const char *data, int len) {
 		return 0;
 	}
 
-	// tmp = skip_to_closingbracket(data, loop_pos - data + 1, len, ')');
-
 	while (loop_pos - data < len) {
 		if (*loop_pos == ';') {
 			if (count < 3) {
@@ -281,16 +279,68 @@ int has_for(const char *data, int len) {
 
 	loop_pos += skip_whitespaces(loop_pos, 0, len);
 
-	if (*loop_pos != '{') {
+	if (*loop_pos == '{') {
+		loop_pos++;
+		tmp = skip_to_closingbracket(data, loop_pos - data, len, '}');
+
+		if (tmp >= 0) {
+			printk(KERN_INFO "DLP: Found 'for' loop, Blocking message.");
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	while (loop_pos - data < len) {
+		if (*loop_pos == ';') {
+			printk(KERN_INFO "DLP: Found 'if' statement, Blocking message.");
+			return 1;
+		} else {
+			loop_pos++;
+		}
+	}
+
+	return 0;
+}
+
+int has_while(const char *data, int len) {
+	const char *loop_pos;
+	int tmp;
+
+	loop_pos = loop_start(data, "while", len);
+
+	if (loop_pos == NULL) {
 		return 0;
 	}
 
-	loop_pos++;
-	tmp = skip_to_closingbracket(data, loop_pos - data, len, '}');
+	tmp = skip_to_closingbracket(data, loop_pos - data, len, ')');
 
-	if (tmp >= 0) {
-		printk(KERN_INFO "DLP: Found 'for' loop, Blocking message.");
-		return 1;
+	if (tmp < 0) {
+		return 0;
+	}
+
+	loop_pos += tmp;
+	loop_pos += skip_whitespaces(loop_pos, 0, len);
+
+	if (*loop_pos == '{') {
+		loop_pos++;
+		tmp = skip_to_closingbracket(data, loop_pos - data, len, '}');
+
+		if (tmp >= 0) {
+			printk(KERN_INFO "DLP: Found 'for' loop, Blocking message.");
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	while (loop_pos - data < len) {
+		if (*loop_pos == ';') {
+			printk(KERN_INFO "DLP: Found 'if' statement, Blocking message.");
+			return 1;
+		} else {
+			loop_pos++;
+		}
 	}
 
 	return 0;
@@ -314,6 +364,8 @@ int check_for_code(const char *data) {
 	} else if (has_if(data, len)) {
 		return 1;
 	} else if (has_for(data, len)) {
+		return 1;
+	} else if (has_while(data, len)) {
 		return 1;
 	}
 
