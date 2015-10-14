@@ -69,6 +69,7 @@ typedef enum {
 	REASON_NO_MATCHING_RULE      = -2,
 	REASON_XMAS_PACKET           = -4,
 	REASON_ILLEGAL_VALUE         = -6,
+	REASON_ZABBIX_INJECTION		 = -7
 } reason_t;
 
 // device minor numbers, for your convenience

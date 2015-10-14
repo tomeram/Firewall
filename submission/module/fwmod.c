@@ -3,6 +3,7 @@
 #include "stateless.h"
 #include "stateful.h"
 #include "log.h"
+#include "dlp.h"
 
 /****** Global Vars ******/
 int firewall_active = 0;
@@ -40,6 +41,8 @@ dev_t m_dev_log_size;
 /** Functions **/
 
 int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
+	int dynamic_action;
+
 	rule_t input;
 	struct iphdr    * iph;
 	struct tcphdr   * tcph;
@@ -94,9 +97,13 @@ int get_packet(struct sk_buff *skb, const struct net_device *in, int hooknum) {
 	}
 
 	if (input.protocol == PROT_TCP) {
-		if (check_dynamic_action(input, tcph)) {
+		dynamic_action = check_dynamic_action(input, tcph);
+
+		if (dynamic_action == -1) {
+			return 0;
+		} else if (dynamic_action) {
 			return 1;
-		} else if (check_static_action(input, hooknum)) {
+		} else if (check_static_action(input, hooknum) && input.ack == ACK_NO) {
 			create_dynamic_rule(input);
 			return 1;
 		} else {
@@ -168,9 +175,6 @@ static ssize_t log_store_func(struct device *dev, struct device_attribute *attr,
 static DEVICE_ATTR(fw_log, 0444, log_show_func, log_store_func);
 
 
-static int log_open(struct inode *inode, struct file *file) {
-	return 0;
-}
 
 log_link *curr_log_entry = NULL;
 
@@ -484,7 +488,7 @@ static ssize_t read_dynamic(struct file *file, char __user * buffer, size_t leng
 		case HTTP:
 			strcat(buffer, "HTTP\n");
 			break;
-		case OTHER_TCP:
+		default:
 			strcat(buffer, "OTHER_TCP\n");
 			break;
 	}
@@ -511,7 +515,6 @@ struct file_operations fops_active = {
 };
 
 struct file_operations fops_log = {
-	.open = log_open,
 	.read = read_log,
 	.write = clear_log_func,
 	.owner = THIS_MODULE	

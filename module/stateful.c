@@ -308,7 +308,7 @@ int check_dynamic_action(rule_t input, struct tcphdr *tcph) {
 
 		// Check rule timeout
 		//TODO: fix time
-		if (curr_time - rule->timestamp > 250000) {
+		if (curr_time - rule->timestamp > 25) {
 			printk(KERN_INFO "Rule Expired. Remove from table.\n");
 			// Rule default timeout -> remove and skip
 			if (prev != NULL) {
